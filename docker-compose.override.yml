@@ -1,0 +1,8 @@
+version: '3'
+services:
+  server:
+    image: node:10
+    volumes:
+      - .:/mnt
+    working_dir: /mnt
+    command: bash -c 'yarn install && yarn start'
