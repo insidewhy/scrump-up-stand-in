@@ -1,0 +1,40 @@
+{
+  "name": "scrumpts-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "yarn run compile && concurrently \"yarn run compile:watch\" \"yarn run server:watch\"",
+    "clean": "rm -rf build",
+    "compile": "tsc -p .",
+    "compile:watch": "tsc -w -p .",
+    "server": "node build/dist/bootstrap",
+    "server:watch": "nodemon -x node -w build/dist -d 300ms build/dist/bootstrap",
+    "validate": "tslint -p .",
+    "fix": "yarn run validate --fix && prettier --write '**/*.ts'",
+    "precommit": "pretty-quick --staged"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.1",
+    "axios": "^0.18.0",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "lodash.shuffle": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.45",
+    "@types/koa-bodyparser": "^5.0.1",
+    "@types/koa-passport": "^4.0.1",
+    "@types/koa-router": "^7.0.28",
+    "@types/lodash.shuffle": "^4.2.4",
+    "concurrently": "^4.0.1",
+    "husky": "^0.14.3",
+    "nodemon": "^1.17.4",
+    "prettier": "^1.13.4",
+    "pretty-quick": "^1.6.0",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^3.0.0"
+  }
+}
