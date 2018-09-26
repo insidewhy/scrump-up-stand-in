@@ -52,7 +52,7 @@ const getRouter = (app: Koa): Router => {
     ctxt.body = {
       response_type: 'in_channel',
       text:
-        shuffle(members.map(id => `<@${id}>`)).join(', ') +
+        shuffle(members.map(id => `<@${id}>`)).join(' ') +
         ' Good evening sirs, please commence scrumming in the order shown.',
     }
   })
