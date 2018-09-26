@@ -4,7 +4,7 @@ import * as Router from 'koa-router'
 import axios from 'axios'
 
 const shuffle = require('lodash.shuffle')
-const port = process.env.API_PORT || 4000
+const port = 9500
 
 const accessToken = process.env.ACCESS_TOKEN
 if (!accessToken) {
