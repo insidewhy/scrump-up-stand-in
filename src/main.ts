@@ -51,7 +51,9 @@ const getRouter = (app: Koa): Router => {
     // console.log('got members %j', members)
     ctxt.body = {
       response_type: 'in_channel',
-      text: 'slack list man: ' + shuffle(members.map(id => `<@${id}>`)).join(', '),
+      text:
+        shuffle(members.map(id => `<@${id}>`)).join(', ') +
+        ' Good evening sirs, please commence scrumming in the order shown.',
     }
   })
 
