@@ -2,3 +2,5 @@
 /build
 /doit.sh
 /.env
+/redis/data
+!/redis/data/.keepdir

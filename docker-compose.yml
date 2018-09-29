@@ -5,3 +5,10 @@ services:
     build: .
     ports:
       - ${API_PORT}:9500
+  redis:
+    image: redis:4
+    env_file: .env
+    command: bash -c '(echo requirepass $REDIS_PASSWORD; cat /etc/redis.conf.tmpl) > /etc/redis.conf && exec redis-server /etc/redis.conf'
+    volumes:
+      - ./redis/redis.conf:/etc/redis.conf.tmpl
+      - ./redis/data:/data
