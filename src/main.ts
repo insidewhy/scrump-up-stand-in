@@ -7,6 +7,16 @@ import axios from 'axios'
 const shuffle = require('lodash.shuffle')
 const port = 9500
 
+const botComments = [
+  // 'Goodnight Christmas Elves, Santa wants you to scrum in the order shown.',
+  'Only 28 days left until Christmas! Hohoho! Santa brings the early gift of scrum!! Hohoho!',
+  // 'Pterodactyls are on the way! Maybe this scrum can save us all!',
+  '"Stay away from my bins while you scrummin\'... fool!"',
+  'Thank you Marios, but our scrum is in another castle!',
+  'Soar like beautiful eaglets into a new scrum!!!',
+  "How 'bout them transparent dangling scrums?",
+]
+
 const redis = new Redis({ host: 'redis', password: process.env.REDIS_PASSWORD })
 redis.addListener('connect', () => {
   console.debug('connected to redis')
@@ -59,8 +69,7 @@ const startStandup = async (body: any) => {
   return {
     response_type: 'in_channel',
     text:
-      shuffle(includedMembers.map(id => `<@${id}>`)).join(' ') +
-      ' Good morning cats, for your voot you must scrum.',
+      shuffle(includedMembers.map(id => `<@${id}>`)).join(' ') + ' ' + shuffle(botComments)[0],
   }
 }
 
