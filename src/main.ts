@@ -9,12 +9,13 @@ const port = 9500
 
 const botComments = [
   // 'Goodnight Christmas Elves, Santa wants you to scrum in the order shown.',
-  'Only 28 days left until Christmas! Hohoho! Santa brings the early gift of scrum!! Hohoho!',
+  // 'Only 28 days left until Christmas! Hohoho! Santa brings the early gift of scrum!! Hohoho!',
   // 'Pterodactyls are on the way! Maybe this scrum can save us all!',
-  '"Stay away from my bins while you scrummin\'... fool!"',
-  'Thank you Marios, but our scrum is in another castle!',
-  'Soar like beautiful eaglets into a new scrum!!!',
-  "How 'bout them transparent dangling scrums?",
+  // '"Stay away from my bins while you scrummin\'... fool!"',
+  // 'Thank you Marios, but our scrum is in another castle!',
+  // 'Soar like beautiful eaglets into a new scrum!!!',
+  // "How 'bout them transparent dangling scrums?",
+  'Scrum in the order you have been mentioned',
 ]
 
 const redis = new Redis({ host: 'redis', password: process.env.REDIS_PASSWORD })
