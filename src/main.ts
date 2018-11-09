@@ -67,11 +67,10 @@ const startStandup = async (body: any) => {
   const includedMembers = members.filter(member => !excludes.has(member))
 
   // console.log('got members %j', members, includedMembers)
-  return {
-    response_type: 'in_channel',
-    text:
-      shuffle(includedMembers.map(id => `<@${id}>`)).join(' ') + ' ' + shuffle(botComments)[0],
-  }
+  const text =
+    shuffle(includedMembers.map(id => `<@${id}>`)).join(' ') + ' ' + shuffle(botComments)[0]
+  console.log(new Date().toLocaleString(), 'saying:', text)
+  return { response_type: 'in_channel', text }
 }
 
 const parseHandles = (text: string) => {
