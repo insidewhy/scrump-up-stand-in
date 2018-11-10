@@ -92,7 +92,7 @@ const licenseCmd = 'license'
 const switchInclusion = async (body: any, include: boolean) => {
   const { text } = body
   const handles = parseHandles(text.substr(include ? includeCmd.length : excludeCmd.length))
-  if (!handles) return 'Problem parsing handles'
+  if (!handles.length) return 'Problem parsing handles'
   const { team_id, channel_id } = body
   const hashKey = bodyToHashKey(body, 'excluded')
   const nChanges = await (include ? redis.srem(hashKey, handles) : redis.sadd(hashKey, handles))
