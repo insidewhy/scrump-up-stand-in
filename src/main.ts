@@ -85,8 +85,9 @@ const parseHandles = (text: string) => {
   return matches
 }
 
-const excludeCmd = 'exclude '
-const includeCmd = 'include '
+const excludeCmd = 'exclude'
+const includeCmd = 'include'
+const licenseCmd = 'license'
 
 const switchInclusion = async (body: any, include: boolean) => {
   const { text } = body
@@ -107,6 +108,11 @@ const interpretCommand = async (body: any) => {
     return switchInclusion(body, false)
   } else if (text.startsWith(includeCmd)) {
     return switchInclusion(body, true)
+  } else if (text.startsWith(licenseCmd)) {
+    return {
+      response_type: 'in_channel',
+      text: 'Sorry, this license key is invalid or has expired.',
+    }
   } else {
     return "Unknown command, try 'include' or 'exclude'"
   }
