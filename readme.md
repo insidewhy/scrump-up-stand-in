@@ -1,6 +1,6 @@
 # Scrum bot
 
-Are you tired of:
+Are you tired of the following happening in your scrums:
 
 "So who wants to speak next?"
 
@@ -12,7 +12,7 @@ Are you tired of:
 
 (eight minutes later the next person is chosen).
 
-This bot will take the hassle out by selecting a random order for people to scrum in.
+This bot will remove the hassle by selecting a random order for people to scrum in. It will also mention all of the scrumees to draw their attention.
 
 ## Usage
 
@@ -30,6 +30,6 @@ The bot will remove the given exclusions.
 
 ## Running
 
-`docker compose up`
+`docker-compose up`
 
 This docker-compose configuration starts a container for the bot and another for a redis instance to store the exclusions. You'll want to edit the `.env` file first to provide your slack key via `ACCESS_TOKEN`.
